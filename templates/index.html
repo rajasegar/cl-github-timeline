@@ -36,6 +36,11 @@
   .button:hover {
     background: rgb(255, 40,40);
   }
+
+  .button[disabled] {
+    cursor: not-allowed;
+  }
+
   footer {
     margin-top: 2em;
   }
@@ -278,15 +283,30 @@
       margin: 1em 4em 0 4em;
     }
   }
+
+  #goto-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+      }
+
+  #goto-top a {
+    padding: 4px;
+    background: rgb(255, 80,80);
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
 </style>
   </head>
   <body>
     <div class="App">
       <h1>Github Timeline</h1>
-      <form hx-post="/repos" hx-target="#timeline" hx-indicator="#indicator">
+      <form>
         <label for="txtUsername">Github user name:</label>
         <input id="txtUsername" name="user" type="text"  class="input-field"/>
-        <button class="button" type="submit">Generate Timeline</button>
+        <button hx-post="/repos" hx-target="#timeline" hx-indicator="#indicator" class="button" type="submit" _="on click toggle [@disabled=true] until htmx:afterOnLoad">Generate Timeline</button>
       </form>
       <div id="indicator" class="htmx-indicator">
         <h3>Loading repos, please wait...</h3>
@@ -296,6 +316,8 @@
         <a href="https://github.com/rajasegar/cl-github-timeline">Github</a>
       </footer>
     </div>
+      <div id="goto-top"><a href="#">&uarr;</a></div>
     <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.8.1"></script>
   </body>
 </html>

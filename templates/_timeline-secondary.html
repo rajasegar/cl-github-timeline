@@ -1,4 +1,4 @@
-<ul class="timeline" id="timeline">
+<ul class="timeline">
 {% for repo in repos %}
 <li>
   <div class="{{forloop.counter|direction-class}}">
@@ -11,7 +11,7 @@
 </li>
 {% endfor %}
 </ul>
-<button class="button" type="button" _="on click toggle [@disabled=true] until htmx:afterOnLoad" hx-get="/more?user={{user}}&page=2" hx-swap="outerHTML" hx-indicator="#indicator1">Fetch More</button>
-<div id="indicator1" class="htmx-indicator">
+<button class="button" type="button" hx-get="/more?user={{user}}&page={{page}}" hx-swap="outerHTML" hx-indicator="#indicator2" _="on click toggle [@disabled=true] until htmx:afterOnLoad">Fetch More</button>
+<div id="indicator2" class="htmx-indicator">
 <h3>Loading repos, please wait...</h3>
 </div>
