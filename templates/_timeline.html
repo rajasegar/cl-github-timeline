@@ -1,9 +1,9 @@
 <ul class="timeline" id="timeline">
 {% for repo in repos %}
 <li>
-  <div class="{% if counter|divisibleby:"2" %}direction-l{% else %}direction-r{% endif %}">
+  <div class="{{forloop.counter|direction-class}}">
     <div class="flag-wrapper">
-      <span class="flag"><a target="_blank" href="{{repo.html_url}}">{{repo.name}}</a></span>
+      <span class="flag"><a target="_blank" href="{{repo.html--url}}">{{repo.name}}</a></span>
       <span class="time-wrapper"><span class="time">{{repo.created--at}}</span></span>
     </div>
     <div class="desc">{{repo.description}}</div>

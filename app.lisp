@@ -14,6 +14,10 @@
     `(200 (:content-type "text/html")
 	  (,(format nil "~a" (get-output-stream-string html))))))
 
+(djula:def-filter :direction-class (val)
+  (if (evenp val)
+      "direction-l"
+      "direction-r"))
 
 (defvar *app* (make-instance 'ningle:app))
 
