@@ -1,6 +1,8 @@
 # cl-github-timeline
 A Github timeline created in Common Lisp using [ningle](https://github.com/fukamachi/ningle)
 
+![cl-github-timeline.gif](cl-github-timeline.gif)
+
 ## Usage
 
 You need [roswell](https://github.com/snmsts/roswell) to install [clack](https://github.com/fukamachi/clack)
